@@ -11,11 +11,11 @@ creator.create("Individual", list, fitness=creator.FitnessMax)
 toolbox = base.Toolbox()
 #Attribute generator
 toolbox.register("attr_bool", random.randint, 0, 1)
-//Structure initializers
+#Structure initializers
 toolbox.register("individual", toold.initRepeat, creator.Individual, toolbox.attr_bool, 100)
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-//Sum up all the individuals 
+##Sum up all the individuals 
 def evalOneMax(individual):
 	return sum(individual),
 
@@ -25,9 +25,9 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 
 pop = toolbox.population(n=300)
-//Evaluate the entire population
+#Evaluate the entire population
 fitnesses = list(map(toolbox.evaluate, pop))
-//Zip is for multiple of iterators
+#Zip is for multiple of iterators
 for ind, fit in zip(pop, fitnesses)
 	ind.fitness.values = fit
 
